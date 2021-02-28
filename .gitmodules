@@ -1,0 +1,6 @@
+[submodule "build/judge-server"]
+	path = build/judge-server
+	url = https://github.com/DMOJ/judge-server.git
+[submodule "build/online-judge"]
+	path = build/online-judge
+	url = https://github.com/DMOJ/online-judge.git
