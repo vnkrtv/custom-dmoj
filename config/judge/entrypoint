@@ -22,10 +22,8 @@ esac
 
 shift
 . ~judge/.profile
-
-runuser -u judge "dmoj-autoconf > /judge.yml"
+dmoj-autoconf > /judge.yml
 echo 'problem_storage_root:
 - /problems
 ' >> /judge.yml
-
 runuser -u judge "${command[@]}" -- "$@"
