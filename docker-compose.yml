@@ -24,7 +24,7 @@ services:
       - db
 
   judge:
-    image: dmoj/judge-tier1
+    build: ./config/judge
     container_name: judge-server
     privileged: true
     restart: always
