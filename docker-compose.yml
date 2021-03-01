@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   site:
-    build: ./build/online-judge
+    build: ./config/site
     container_name: online-judge
     restart: always
     environment:

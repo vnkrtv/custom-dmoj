@@ -25,7 +25,8 @@ RUN git submodule init && \
     git config -f .gitmodules submodule.resources/libs.shallow true && \
     git config -f .gitmodules submodule.resources/pagedown.shallow true && \
     git submodule update
-RUN pip3 install -r requirements.txt && \
+RUN pip3 config set global.index-url https://opentuna.cn/pypi/web/simple && \
+    pip3 install -r requirements.txt && \
     pip3 install mysqlclient django_select2 websocket-client pymysql uWSGI
 RUN cnpm install qu ws simplesets
 COPY local_settings.py /site/dmoj
