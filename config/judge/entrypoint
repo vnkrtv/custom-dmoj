@@ -27,4 +27,4 @@ echo 'problem_storage_root:
 - /problems
 ' >> /judge.yml
 # shellcheck disable=SC2086
-runuser -u judge dmoj -c /judge.yml "$JUDGE_SITE" "$JUDGE_NAME" "$JUDGE_KEY"
+runuser -u judge dmoj -- -c /judge.yml "$JUDGE_SITE" "$JUDGE_NAME" "$JUDGE_KEY"
