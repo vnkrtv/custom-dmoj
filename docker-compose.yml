@@ -15,9 +15,11 @@ services:
       - 15100:15100
       - 15101:15101
       - 15102:15102
+    networks:
+      - dmoj-net
     volumes:
-      - $PWD/data/site:/site
-      - $PWD/data/problems:/problems
+      - dmoj-site:/site
+      - dmoj-problems:/problems
     depends_on:
       - db
 
@@ -28,8 +30,10 @@ services:
     restart: always
     depends_on:
       - site
+    networks:
+      - dmoj-net
     volumes:
-      - $PWD/data/problems:/problems
+      - dmoj-problems:/problems
     env_file:
       - config/judge/judge.env
 
@@ -38,6 +42,19 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=dmoj
       - MYSQL_DATABASE=dmoj
+    networks:
+      - dmoj-net
     volumes:
-      - $PWD/data/database:/var/lib/mysql
+      - dmoj-db:/var/lib/mysql
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+
+volumes:
+    dmoj-problems:
+        driver: local
+    dmoj-db:
+        driver: local
+    dmoj-site:
+        driver: local
+networks:
+    dmoj-net:
+        driver: bridge
