@@ -41,6 +41,7 @@ DATABASES = {
     }
 }
 PROBLEM_DATA_ROOT = '/problems'
+DMOJ_PROBLEM_DATA_ROOT = '/problems'
 
 # Sessions.
 #SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
